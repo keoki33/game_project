@@ -1,0 +1,1180 @@
+  [1m[35m (487.6ms)[0m  [1m[35mCREATE DATABASE "game_api_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (527.3ms)[0m  [1m[35mCREATE DATABASE "game_api_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7340490705108835575)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20190506162703)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190506162703_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (3.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190506162703"]]
+  ↳ bin/rails:9
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateScores (20190506162740)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (24.0ms)[0m  [1m[35mCREATE TABLE "scores" ("id" bigserial primary key, "score" integer, "game" character varying, "player_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190506162740_create_scores.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190506162740"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-06 16:29:49.137747"], ["updated_at", "2019-05-06 16:29:49.137747"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7340490705108835575)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "player1"], ["created_at", "2019-05-06 16:30:28.683525"], ["updated_at", "2019-05-06 16:30:28.683525"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mScore Create (0.9ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["score", 10], ["game", "tank"], ["player_id", 1], ["created_at", "2019-05-06 16:31:09.462467"], ["updated_at", "2019-05-06 16:31:09.462467"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2019-05-06 17:32:00 +0100
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/flatironschool/.rvm/gems/ruby-2.3.3/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/flatironschool/.rvm/gems/ruby-2.3.3/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (11.8ms)
+Completed 200 OK in 40ms (Views: 31.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2019-05-06 17:32:05 +0100
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for UsersController):
+  
+actionpack (5.2.3) lib/abstract_controller/base.rb:129:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2019-05-06 20:40:57 +0100
+  
+SyntaxError (/Users/flatironschool/Development/game_project/game_api/app/controllers/users_controller.rb:60: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/users_controller.rb:60: syntax error, unexpected keyword_end, expecting end-of-input
+Started GET "/users" for ::1 at 2019-05-06 20:41:18 +0100
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 117ms (Views: 28.4ms | ActiveRecord: 32.7ms)
+
+
+Started GET "/users" for ::1 at 2019-05-06 20:43:03 +0100
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 57ms (Views: 24.5ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/users" for ::1 at 2019-05-06 20:43:12 +0100
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/user/1" for ::1 at 2019-05-06 20:43:17 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/user/1"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/1" for ::1 at 2019-05-06 20:43:23 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+Completed 200 OK in 45ms (Views: 0.4ms | ActiveRecord: 26.9ms)
+
+
+Started GET "/users" for ::1 at 2019-05-06 20:55:35 +0100
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 37ms (Views: 6.8ms | ActiveRecord: 15.5ms)
+
+
+Started GET "/scxores" for ::1 at 2019-05-06 21:17:51 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/scxores"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/scores" for ::1 at 2019-05-06 21:17:56 +0100
+Processing by ScoresController#index as HTML
+  [1m[36mScore Load (6.3ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:5
+Completed 200 OK in 110ms (Views: 6.1ms | ActiveRecord: 44.9ms)
+
+
+Started GET "/score/1" for ::1 at 2019-05-06 21:18:03 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/score/1"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/scores/1" for ::1 at 2019-05-06 21:18:09 +0100
+Processing by ScoresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mScore Load (4.2ms)[0m  [1m[34mSELECT  "scores".* FROM "scores" WHERE "scores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/scores_controller.rb:9
+Completed 200 OK in 43ms (Views: 0.4ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/" for ::1 at 2019-05-07 18:24:18 +0100
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/flatironschool/.rvm/gems/ruby-2.3.3/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/flatironschool/.rvm/gems/ruby-2.3.3/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (5.3ms)
+Completed 200 OK in 17ms (Views: 12.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2019-05-07 18:24:24 +0100
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (99.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 153ms (Views: 8.2ms | ActiveRecord: 111.0ms)
+
+
+Started GET "/socres" for ::1 at 2019-05-07 18:24:46 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/socres"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/scores" for ::1 at 2019-05-07 18:24:54 +0100
+Processing by ScoresController#index as HTML
+  [1m[36mScore Load (8.6ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:5
+Completed 200 OK in 74ms (Views: 0.4ms | ActiveRecord: 40.7ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 08:56:26 +0100
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ScoresController#index as HTML
+  [1m[36mScore Load (7.3ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:5
+Completed 200 OK in 62ms (Views: 6.6ms | ActiveRecord: 22.6ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2019-05-08 08:56:27 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/scores" for ::1 at 2019-05-08 09:02:55 +0100
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ScoresController#index as HTML
+  [1m[36mScore Load (0.6ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:5
+Completed 200 OK in 38ms (Views: 5.8ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 09:03:02 +0100
+Processing by ScoresController#index as HTML
+  [1m[36mScore Load (1.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:5
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 09:03:10 +0100
+Processing by ScoresController#index as HTML
+  [1m[36mScore Load (1.4ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:5
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users" for ::1 at 2019-05-08 09:03:16 +0100
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 34ms (Views: 0.4ms | ActiveRecord: 10.5ms)
+
+
+Started OPTIONS "/users" for ::1 at 2019-05-08 09:03:28 +0100
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/users"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started OPTIONS "/users" for ::1 at 2019-05-08 09:04:05 +0100
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/users"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/users" for ::1 at 2019-05-08 09:18:52 +0100
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"werwerwr", "user"=>{"name"=>"werwerwr"}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "werwerwr"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (11.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "werwerwr"], ["created_at", "2019-05-08 08:18:52.800140"], ["updated_at", "2019-05-08 08:18:52.800140"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 46ms (Views: 6.5ms | ActiveRecord: 22.8ms)
+
+
+Started GET "/users" for ::1 at 2019-05-08 09:18:59 +0100
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 09:28:53 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"werwerwr", "user"=>{"name"=>"werwerwr"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "werwerwr"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 09:34:47 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"dqwddw", "user"=>{"name"=>"dqwddw"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "dqwddw"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "dqwddw"], ["created_at", "2019-05-08 08:34:47.294871"], ["updated_at", "2019-05-08 08:34:47.294871"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 21ms (Views: 4.3ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/users" for ::1 at 2019-05-08 09:34:50 +0100
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-05-08 09:39:07 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/flatironschool/.rvm/gems/ruby-2.3.3/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/flatironschool/.rvm/gems/ruby-2.3.3/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (9.0ms)
+Completed 200 OK in 25ms (Views: 19.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 09:39:12 +0100
+Processing by ScoresController#index as HTML
+  [1m[36mScore Load (4.0ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:5
+Completed 200 OK in 76ms (Views: 0.5ms | ActiveRecord: 46.5ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 09:47:33 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (1.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:5
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 09:54:43 +0100
+Processing by ScoresController#index as HTML
+Completed 200 OK in 16ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 09:54:56 +0100
+Processing by ScoresController#index as HTML
+  [1m[36mScore Load (2.7ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:6
+Completed 200 OK in 113ms (Views: 16.6ms | ActiveRecord: 33.0ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 10:06:18 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.7ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:6
+Completed 200 OK in 62ms (Views: 8.0ms | ActiveRecord: 16.1ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 10:10:28 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (2.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:6
+Completed 200 OK in 7ms (Views: 1.1ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 10:15:51 +0100
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ScoresController#index as HTML
+  [1m[36mScore Load (2.6ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:6
+Completed 200 OK in 58ms (Views: 10.5ms | ActiveRecord: 18.1ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mScore Create (4.6ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["score", 500], ["game", "dino"], ["player_id", 1], ["created_at", "2019-05-08 09:21:32.406993"], ["updated_at", "2019-05-08 09:21:32.406993"]]
+  [1m[35m (4.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mScore Create (0.6ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["score", 500], ["game", "tank"], ["player_id", 2], ["created_at", "2019-05-08 09:21:50.942496"], ["updated_at", "2019-05-08 09:21:50.942496"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/scores" for ::1 at 2019-05-08 10:22:22 +0100
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ScoresController#index as HTML
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:6
+Completed 200 OK in 58ms (Views: 9.7ms | ActiveRecord: 11.5ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 10:22:36 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (2.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:6
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 10:24:17 +0100
+  
+ArgumentError (Unknown key: :required. Valid keys are: :class_name, :anonymous_class, :foreign_key, :validate, :autosave, :table_name, :before_add, :after_add, :before_remove, :after_remove, :extend, :primary_key, :dependent, :as, :through, :source, :source_type, :inverse_of, :counter_cache, :join_table, :foreign_type, :index_errors):
+  
+app/models/user.rb:2:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+Started POST "/users" for ::1 at 2019-05-08 10:24:49 +0100
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+ArgumentError (Unknown key: :required. Valid keys are: :class_name, :anonymous_class, :foreign_key, :validate, :autosave, :table_name, :before_add, :after_add, :before_remove, :after_remove, :extend, :primary_key, :dependent, :as, :through, :source, :source_type, :inverse_of, :counter_cache, :join_table, :foreign_type, :index_errors):
+  
+app/models/user.rb:2:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+Started POST "/users" for ::1 at 2019-05-08 10:25:31 +0100
+  
+ArgumentError (Unknown key: :required. Valid keys are: :class_name, :anonymous_class, :foreign_key, :validate, :autosave, :table_name, :before_add, :after_add, :before_remove, :after_remove, :extend, :primary_key, :dependent, :as, :through, :source, :source_type, :inverse_of, :counter_cache, :join_table, :foreign_type, :index_errors):
+  
+app/models/user.rb:2:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+Started POST "/users" for ::1 at 2019-05-08 10:26:11 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"wferrewf", "user"=>{"name"=>"wferrewf"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "wferrewf"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "wferrewf"], ["created_at", "2019-05-08 09:26:11.638440"], ["updated_at", "2019-05-08 09:26:11.638440"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 28ms (Views: 4.8ms | ActiveRecord: 9.2ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 10:26:32 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"test1", "user"=>{"name"=>"test1"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "test1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "test1"], ["created_at", "2019-05-08 09:26:32.156426"], ["updated_at", "2019-05-08 09:26:32.156426"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 10:26:45 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"test1", "user"=>{"name"=>"test1"}}
+Started GET "/scores" for ::1 at 2019-05-08 10:26:45 +0100
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "test1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 22ms (Views: 0.6ms | ActiveRecord: 1.9ms)
+
+
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (3.0ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:6
+Completed 200 OK in 36ms (Views: 0.3ms | ActiveRecord: 12.5ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 10:56:42 +0100
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"qferr", "user"=>{"name"=>"qferr"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "qferr"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "qferr"], ["created_at", "2019-05-08 09:56:42.747168"], ["updated_at", "2019-05-08 09:56:42.747168"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 28ms (Views: 5.4ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 10:56:46 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (1.3ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:6
+Completed 200 OK in 33ms (Views: 0.7ms | ActiveRecord: 12.7ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 10:57:35 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"qeqfwef", "user"=>{"name"=>"qeqfwef"}}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "qeqfwef"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "qeqfwef"], ["created_at", "2019-05-08 09:57:35.130412"], ["updated_at", "2019-05-08 09:57:35.130412"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:01:08 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"wfewefwe", "user"=>{"name"=>"wfewefwe"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "wfewefwe"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (5.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (2.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "wfewefwe"], ["created_at", "2019-05-08 10:01:08.536503"], ["updated_at", "2019-05-08 10:01:08.536503"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 21ms (Views: 0.4ms | ActiveRecord: 8.5ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:01:33 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"qfdef", "user"=>{"name"=>"qfdef"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "qfdef"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "qfdef"], ["created_at", "2019-05-08 10:01:33.934941"], ["updated_at", "2019-05-08 10:01:33.934941"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:02:05 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"qeffew", "user"=>{"name"=>"qeffew"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "qeffew"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "qeffew"], ["created_at", "2019-05-08 10:02:05.502944"], ["updated_at", "2019-05-08 10:02:05.502944"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:03:27 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"qferwtr", "user"=>{"name"=>"qferwtr"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "qferwtr"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "qferwtr"], ["created_at", "2019-05-08 10:03:27.077667"], ["updated_at", "2019-05-08 10:03:27.077667"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:03:28 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"qferwtr", "user"=>{"name"=>"qferwtr"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "qferwtr"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:03:30 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"qferwtr", "user"=>{"name"=>"qferwtr"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "qferwtr"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:03:31 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"qferwtr", "user"=>{"name"=>"qferwtr"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "qferwtr"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:05:52 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"eqrqerwer", "user"=>{"name"=>"eqrqerwer"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "eqrqerwer"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "eqrqerwer"], ["created_at", "2019-05-08 10:05:52.278914"], ["updated_at", "2019-05-08 10:05:52.278914"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:06:33 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"qerer", "user"=>{"name"=>"qerer"}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "qerer"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (1.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "qerer"], ["created_at", "2019-05-08 10:06:33.034875"], ["updated_at", "2019-05-08 10:06:33.034875"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 11ms (Views: 0.5ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:06:48 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"qerer", "user"=>{"name"=>"qerer"}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "qerer"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:07:15 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"qqerer", "user"=>{"name"=>"qqerer"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "qqerer"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "qqerer"], ["created_at", "2019-05-08 10:07:15.403325"], ["updated_at", "2019-05-08 10:07:15.403325"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:09:47 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"eqrer", "user"=>{"name"=>"eqrer"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "eqrer"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "eqrer"], ["created_at", "2019-05-08 10:09:47.374688"], ["updated_at", "2019-05-08 10:09:47.374688"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 13ms (Views: 3.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 11:09:50 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (12.4ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:6
+Completed 200 OK in 19ms (Views: 0.5ms | ActiveRecord: 12.4ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:09:58 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"qerqer", "user"=>{"name"=>"qerqer"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "qerqer"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "qerqer"], ["created_at", "2019-05-08 10:09:58.759433"], ["updated_at", "2019-05-08 10:09:58.759433"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:10:34 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"wrere", "user"=>{"name"=>"wrere"}}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "wrere"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (3.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (8.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "wrere"], ["created_at", "2019-05-08 10:10:34.075299"], ["updated_at", "2019-05-08 10:10:34.075299"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 26ms (Views: 0.4ms | ActiveRecord: 14.8ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:11:57 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"sfggsdgs", "user"=>{"name"=>"sfggsdgs"}}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "sfggsdgs"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (2.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "sfggsdgs"], ["created_at", "2019-05-08 10:11:57.719144"], ["updated_at", "2019-05-08 10:11:57.719144"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 11:12:25 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.5ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:6
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:15:32 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"regesrgh", "user"=>{"name"=>"regesrgh"}}
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "regesrgh"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (3.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "regesrgh"], ["created_at", "2019-05-08 10:15:32.115533"], ["updated_at", "2019-05-08 10:15:32.115533"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 18ms (Views: 0.5ms | ActiveRecord: 9.4ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:16:36 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"sdfgsgf", "user"=>{"name"=>"sdfgsgf"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "sdfgsgf"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "sdfgsgf"], ["created_at", "2019-05-08 10:16:36.574499"], ["updated_at", "2019-05-08 10:16:36.574499"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:16:53 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"ferfeq", "user"=>{"name"=>"ferfeq"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "ferfeq"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "ferfeq"], ["created_at", "2019-05-08 10:16:53.178114"], ["updated_at", "2019-05-08 10:16:53.178114"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (5.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 6.0ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:33:24 +0100
+Started POST "/scores" for ::1 at 2019-05-08 11:33:24 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"qwdqwd", "user"=>{"name"=>"qwdqwd"}}
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>"", "name"=>"", "game"=>"test", "score"=>"99"}
+  [1m[35m (4.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mScore Create (1.9ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 99], ["game", "test"], ["created_at", "2019-05-08 10:33:24.386343"], ["updated_at", "2019-05-08 10:33:24.386343"]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "qwdqwd"], ["LIMIT", 1]]
+  ↳ app/controllers/scores_controller.rb:19
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+Completed 200 OK in 36ms (Views: 1.6ms | ActiveRecord: 12.4ms)
+
+
+  [1m[35m (5.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "qwdqwd"], ["created_at", "2019-05-08 10:33:24.410915"], ["updated_at", "2019-05-08 10:33:24.410915"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 65ms (Views: 2.7ms | ActiveRecord: 20.5ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 11:33:34 +0100
+Processing by ScoresController#index as HTML
+  [1m[36mScore Load (2.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:6
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users" for ::1 at 2019-05-08 11:34:34 +0100
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 26ms (Views: 3.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/scores" for ::1 at 2019-05-08 11:34:57 +0100
+Started POST "/users" for ::1 at 2019-05-08 11:34:57 +0100
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>"", "name"=>"", "game"=>"test", "score"=>"99"}
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"gfwegfwer", "user"=>{"name"=>"gfwegfwer"}}
+  [1m[35m (7.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mScore Create (3.5ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 99], ["game", "test"], ["created_at", "2019-05-08 10:34:57.116494"], ["updated_at", "2019-05-08 10:34:57.116494"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+Completed 200 OK in 25ms (Views: 0.7ms | ActiveRecord: 13.6ms)
+
+
+  [1m[36mUser Load (8.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "gfwegfwer"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (5.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (3.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "gfwegfwer"], ["created_at", "2019-05-08 10:34:57.144867"], ["updated_at", "2019-05-08 10:34:57.144867"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 44ms (Views: 0.2ms | ActiveRecord: 24.7ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 11:35:10 +0100
+Processing by ScoresController#index as HTML
+  [1m[36mScore Load (6.3ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:6
+Completed 200 OK in 15ms (Views: 0.4ms | ActiveRecord: 6.3ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:36:57 +0100
+Started POST "/scores" for ::1 at 2019-05-08 11:36:57 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"fgasghghh", "user"=>{"name"=>"fgasghghh"}}
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "fgasghghh"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+Processing by ScoresController#create as */*
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  Parameters: {"player_id"=>0, "name"=>"", "game"=>"test", "score"=>"99"}
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (3.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mUser Create (14.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "fgasghghh"], ["created_at", "2019-05-08 10:36:57.106708"], ["updated_at", "2019-05-08 10:36:57.106708"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mScore Create (21.9ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["score", 99], ["game", "test"], ["player_id", 0], ["created_at", "2019-05-08 10:36:57.110458"], ["updated_at", "2019-05-08 10:36:57.110458"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (10.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 36ms (Views: 0.3ms | ActiveRecord: 27.5ms)
+
+
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 53ms (Views: 0.4ms | ActiveRecord: 29.4ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 11:37:00 +0100
+Processing by ScoresController#index as HTML
+  [1m[36mScore Load (2.4ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:6
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:38:03 +0100
+Started POST "/scores" for ::1 at 2019-05-08 11:38:03 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"qwefef", "user"=>{"name"=>"qwefef"}}
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>0, "name"=>"", "game"=>"test", "score"=>"99"}
+  [1m[35m (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "qwefef"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mScore Create (1.8ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["score", 99], ["game", "test"], ["player_id", 0], ["created_at", "2019-05-08 10:38:03.109481"], ["updated_at", "2019-05-08 10:38:03.109481"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mUser Create (6.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "qwefef"], ["created_at", "2019-05-08 10:38:03.112787"], ["updated_at", "2019-05-08 10:38:03.112787"]]
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 21ms (Views: 0.5ms | ActiveRecord: 7.1ms)
+
+
+  [1m[35m (18.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 53ms (Views: 3.6ms | ActiveRecord: 30.4ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:40:01 +0100
+Started POST "/scores" for ::1 at 2019-05-08 11:40:01 +0100
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>"", "name"=>"", "game"=>"test", "score"=>"99"}
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"qefqef", "user"=>{"name"=>"qefqef"}}
+  [1m[36mScore Create (14.8ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 99], ["game", "test"], ["created_at", "2019-05-08 10:40:01.552943"], ["updated_at", "2019-05-08 10:40:01.552943"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "qefqef"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+Completed 200 OK in 34ms (Views: 0.3ms | ActiveRecord: 21.7ms)
+
+
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (6.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "qefqef"], ["created_at", "2019-05-08 10:40:01.589998"], ["updated_at", "2019-05-08 10:40:01.589998"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 38ms (Views: 0.4ms | ActiveRecord: 13.3ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 11:40:07 +0100
+Processing by ScoresController#index as HTML
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:6
+Completed 200 OK in 14ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:41:21 +0100
+Started POST "/scores" for ::1 at 2019-05-08 11:41:21 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"qefef", "user"=>{"name"=>"qefef"}}
+Processing by ScoresController#create as */*
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "qefef"], ["LIMIT", 1]]
+  Parameters: {"player_id"=>0, "name"=>"", "game"=>"test", "score"=>"99"}
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (3.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mScore Create (2.7ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["score", 99], ["game", "test"], ["player_id", 0], ["created_at", "2019-05-08 10:41:21.542122"], ["updated_at", "2019-05-08 10:41:21.542122"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mUser Create (8.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "qefef"], ["created_at", "2019-05-08 10:41:21.543722"], ["updated_at", "2019-05-08 10:41:21.543722"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 23ms (Views: 1.8ms | ActiveRecord: 12.7ms)
+
+
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 35ms (Views: 1.7ms | ActiveRecord: 14.5ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 11:41:26 +0100
+Processing by ScoresController#index as HTML
+  [1m[36mScore Load (1.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:6
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:44:07 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"ttteeeesss", "user"=>{"name"=>"ttteeeesss"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "ttteeeesss"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "ttteeeesss"], ["created_at", "2019-05-08 10:44:07.360252"], ["updated_at", "2019-05-08 10:44:07.360252"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 11:44:26 +0100
+Processing by ScoresController#index as HTML
+  [1m[36mScore Load (0.5ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:6
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 11:44:33 +0100
+Started POST "/scores" for ::1 at 2019-05-08 11:44:33 +0100
+Processing by ScoresController#index as */*
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>28, "name"=>"ttteeeesss", "game"=>"test", "score"=>"99"}
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mScore Load (3.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:6
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 3.2ms)
+
+
+  [1m[36mScore Create (8.1ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["score", 99], ["game", "test"], ["player_id", 28], ["created_at", "2019-05-08 10:44:33.809384"], ["updated_at", "2019-05-08 10:44:33.809384"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (12.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+Completed 200 OK in 34ms (Views: 0.5ms | ActiveRecord: 22.0ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 11:44:40 +0100
+Processing by ScoresController#index as HTML
+  [1m[36mScore Load (0.7ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:6
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for ::1 at 2019-05-08 11:44:54 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"rttyrtyrtyrty", "user"=>{"name"=>"rttyrtyrtyrty"}}
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "rttyrtyrtyrty"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "rttyrtyrtyrty"], ["created_at", "2019-05-08 10:44:54.760206"], ["updated_at", "2019-05-08 10:44:54.760206"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 11:45:14 +0100
+Processing by ScoresController#index as HTML
+  [1m[36mScore Load (0.4ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:6
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/scores" for ::1 at 2019-05-08 11:45:36 +0100
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>29, "name"=>"rttyrtyrtyrty", "game"=>"test", "score"=>"99"}
+Started GET "/scores" for ::1 at 2019-05-08 11:45:36 +0100
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+Processing by ScoresController#index as */*
+  [1m[36mScore Create (11.7ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["score", 99], ["game", "test"], ["player_id", 29], ["created_at", "2019-05-08 10:45:36.375640"], ["updated_at", "2019-05-08 10:45:36.375640"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mScore Load (9.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:6
+Completed 200 OK in 18ms (Views: 0.6ms | ActiveRecord: 9.8ms)
+
+
+  [1m[35m (9.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+Completed 200 OK in 29ms (Views: 0.6ms | ActiveRecord: 22.0ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-08 11:45:43 +0100
+Processing by ScoresController#index as HTML
+  [1m[36mScore Load (0.6ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:6
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
