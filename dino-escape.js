@@ -183,6 +183,7 @@ const initialiseDino = () => {
         c.clearRect(0, 0, canvas.width, canvas.height)
         //document.location.reload()
         clearInterval(interval)
+
         createScore(state).then(() => displayScores())
     }
 
