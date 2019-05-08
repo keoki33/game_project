@@ -23,8 +23,6 @@ function displayMenu() {
       </form>
   `
     menu.append(f)
-
-
     // const nameForm = document.querySelector('#nameForm')
     f.addEventListener('submit', event => {
         event.preventDefault()

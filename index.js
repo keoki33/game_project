@@ -1,11 +1,6 @@
 let canvas = document.getElementById("canvas")
 let ctx = canvas.getContext("2d")
-const upBtn = document.querySelector('#upBtn')
-const downBtn = document.querySelector('#downBtn')
-const leftBtn = document.querySelector('#leftBtn')
-const rightBtn = document.querySelector('#rightBtn')
-const aBtn = document.querySelector('#aBtn')
-const sBtn = document.querySelector('#sBtn')
+
 
 
 
