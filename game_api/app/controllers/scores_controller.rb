@@ -16,7 +16,7 @@ class ScoresController < ApplicationController
   end
 
   def create
-    @score = Score.create(score: params[:score], game: params[:game], player_id: params[:player_id])
+    @score = Score.create(score: params[:score], game: params[:game], player_id: params[:player_id], name: params[:name])
       render json: @score.to_json
   end
 

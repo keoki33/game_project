@@ -51,7 +51,7 @@ function displayGames() {
     ol.innerHTML = `
     <h1>Choose a game:</h1>
       <li id="tank">Tank</li>
-     <li id="dino"> Dino </li>
+     <li id="dino">Dino Escape</li>
      <li id="flappy"> Flappy </li>
 `
 
@@ -65,8 +65,10 @@ function displayGames() {
 
     document.querySelector('li#dino').addEventListener('click', () => {
         document.querySelector('li#dino').style.color = "red"
-        console.log("start game")
-        displayScores()
+        state.game = "dino"
+        menu.innerHTML = ""
+        initialiseDino()
+
     })
 
     document.querySelector('li#flappy').addEventListener('click', () => {
@@ -94,7 +96,7 @@ function displayScores() {
 
     let divT1 = document.createElement('div')
     divT1.id = "t1"
-    divT1.innerHTML = "<h1>Tank Game</h1>"
+    divT1.innerHTML = "<h1>Dino Escape</h1>"
     menu.append(divT1)
     let t = document.createElement('table')
     t.id = "score"
@@ -108,7 +110,7 @@ function displayScores() {
 
     getScores().then(function (items) {
         items.forEach((x) => {
-            if (x.game == "tank") {
+            if (x.game == "dino") {
                 // displayScore(x)
                 let tr = document.createElement("tr")
                 tr.innerHTML = `
@@ -176,5 +178,5 @@ const createScore = state =>
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(item)
+        body: JSON.stringify(state)
     }).then(resp => resp.json())
