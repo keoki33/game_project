@@ -1,9 +1,9 @@
 class ScoresController < ApplicationController
 
    def index
-    @scores = Score.all
-    @test = {name: "test", score: 5}
-    render json: @scores.to_json
+    @scores = Score.all.sort
+    @test = @scores.sort_by(&:score).reverse
+    render json: @test.to_json
   end
 
   def show

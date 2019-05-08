@@ -1,4 +1,7 @@
 const menu = document.querySelector('div#menu')
+
+
+
 const URL = 'http://localhost:3000/users'
 let state = {
     player_id: 0,
@@ -42,9 +45,11 @@ function displayMenu() {
 
 function displayGames() {
     console.log("displayGames")
+    menu.innerHTML = ""
 
     let ol = document.createElement('ol')
     ol.innerHTML = `
+    <h1>Choose a game:</h1>
       <li id="tank">Tank</li>
      <li id="dino"> Dino </li>
      <li id="flappy"> Flappy </li>
@@ -76,6 +81,21 @@ function displayGames() {
 
 function displayScores() {
     menu.innerHTML = ""
+    let h1 = document.createElement('button')
+    h1.id = "h1"
+    h1.innerHTML = "Back to game menu"
+    menu.append(h1)
+
+    h1.addEventListener('click', () => {
+        displayGames()
+    })
+
+
+
+    let divT1 = document.createElement('div')
+    divT1.id = "t1"
+    divT1.innerHTML = "<h1>Tank Game</h1>"
+    menu.append(divT1)
     let t = document.createElement('table')
     t.id = "score"
     t.innerHTML = `
@@ -84,21 +104,54 @@ function displayScores() {
     <th>Score</th> 
   </tr>
   `
-    menu.append(t)
+    divT1.append(t)
+
     getScores().then(function (items) {
         items.forEach((x) => {
-            // displayScore(x)
-            let tr = document.createElement("tr")
-            tr.innerHTML = `
+            if (x.game == "tank") {
+                // displayScore(x)
+                let tr = document.createElement("tr")
+                tr.innerHTML = `
 
-           <td>${x.id}</td> 
+           <td>${x.name}</td> 
            <td>${x.score}</td> 
           
           `
-            t.append(tr)
-            console.log(x)
-        })
+                t.append(tr)
 
+            }
+        })
+    })
+    /////////////////// create second table ///////////////
+    let divT2 = document.createElement('div')
+    divT2.id = "t2"
+    divT2.innerHTML = "<h1>Flappy Game</h1>"
+    menu.append(divT2)
+    let t2 = document.createElement('table')
+    t2.id = "t2"
+    t2.innerHTML = `
+  <tr>
+    <th>Name</th>
+    <th>Score</th> 
+  </tr>
+  `
+    divT2.append(t2)
+
+    getScores().then(function (items) {
+        items.forEach((x) => {
+            if (x.game == "flappy") {
+                // displayScore(x)
+                let tr = document.createElement("tr")
+                tr.innerHTML = `
+
+           <td>${x.name}</td> 
+           <td>${x.score}</td> 
+          
+          `
+                t2.append(tr)
+
+            }
+        })
     })
 }
 
