@@ -1,5 +1,44 @@
-function startFlappy() {
+function duckIns() {
+    screen.className = ""
+    menu.innerHTML = ""
+    screen.className = "screenColor" // add your own css style and change this class to match - background, etc
+    let d = document.createElement('div')
 
+    d.innerHTML = `
+    <h1>Flap@$*&g Duck</h1>
+    <br>
+    <br>
+    <br>
+    <p>
+    Help your coding duck avoid bad code
+    <br><br>
+    Hit any button to flap
+    </p>
+    <br>
+    <br>
+    <br>
+
+  
+
+    <h2>Press any button to Start</h2>
+  `
+    menu.append(d)
+
+    document.addEventListener("keydown", start)
+
+
+
+}
+
+function start() {
+    screen.className = ""
+    menu.innerHTML = ""
+    startFlappy()
+}
+
+
+function startFlappy() {
+    document.removeEventListener("keydown", start)
     let stop = "no"
 
     var cvs = document.getElementById("canvas");
@@ -18,9 +57,9 @@ function startFlappy() {
 
     bird.src = "images/bird.png";
     bg.src = "images/bluecode.jpg";
-    fg.src = "images/test.jpg";
-    pipeNorth.src = "images/pipeNorth.png";
-    pipeSouth.src = "images/pipeSouth.png";
+    fg.src = "images/codeground.jpg";
+    pipeNorth.src = "images/pipeNorth.jpg";
+    pipeSouth.src = "images/pipeSouth.jpg";
 
 
     // some variables
@@ -109,7 +148,7 @@ function startFlappy() {
         ctx.fillText("Score : " + score, 10, cvs.height - 20);
         if (stop == "yes") {
             state.score = score
-            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            // ctx.clearRect(0, 0, canvas.width, canvas.height)
             createScore(state).then(() => displayScores())
         } else {
             requestAnimationFrame(draw);

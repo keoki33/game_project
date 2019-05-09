@@ -79,7 +79,7 @@ function displayGames() {
         state.game = "flappy"
         screen.className = ""
         menu.innerHTML = ""
-        startFlappy()
+        duckIns()
     })
 
 }
@@ -88,7 +88,7 @@ function displayGames() {
 
 function displayScores() {
     menu.innerHTML = ""
-    screen.className = "screenColor"
+    // screen.className = "screenColor"
     let h1 = document.createElement('button')
     h1.id = "h1"
     h1.innerHTML = "Back to game menu"
@@ -186,3 +186,30 @@ const createScore = state =>
         },
         body: JSON.stringify(state)
     }).then(resp => resp.json())
+
+
+// function duckIns() {
+//     screen.className = "screenColor" // add your own css style and change this class to match - background, etc
+//     let p = document.createElement('p')
+
+//     p.innerHTML = `
+//     <h1>Flap@$*&g Duck</h1>
+//     <p>
+//     Help your coding duck avoid bad code
+//     Hit any button to flap
+
+//     Cough trip on catnip chase ball of string and flop over, but grab pompom in mouth and put in water dish meow loudly just to annoy owners.Roll over and sun my belly cat walks in keyboard.Under the bed ask
+//     for petting and purr
+//     while eating give me some of your food give me some of your food give me some of your food meh, i don 't want it so always hungry. Pet me pet me don'
+//     t pet me human clearly uses close to one life a night no one naps that long so i revive by standing on chestawaken!yet stare at owner accusingly then wink caticus cuteicus poop on floor and watch human clean up.Throwup on your pillow eat the fat cats food and side - eyes your "jerk"
+//     other hand
+//     while being petted so hiding behind the couch until lured out by a feathery toy but immediately regret falling into bathtub.Cough.
+//     </p>
+
+//     <h2>press any button to start</h2>
+//   `
+//     menu.append(p)
+
+//     document.addEventListener("keydown", startFlappy)
+
+// }
