@@ -1,5 +1,5 @@
 const menu = document.querySelector('div#menu')
-
+const screen = document.querySelector('div#screen')
 
 
 const URL = 'http://localhost:3000/users'
@@ -14,6 +14,7 @@ let state = {
 
 function displayMenu() {
     console.log("displayMenu")
+    screen.className = "screenColor"
     let f = document.createElement('form')
 
     f.innerHTML = `
@@ -46,13 +47,14 @@ function displayMenu() {
 function displayGames() {
     console.log("displayGames")
     menu.innerHTML = ""
+    screen.className = "screenColor"
 
     let ol = document.createElement('ol')
     ol.innerHTML = `
     <h1>Choose a game:</h1>
       <li id="tank">Tank</li>
      <li id="dino">Dino Escape</li>
-     <li id="flappy"> Flappy </li>
+     <li id="flappy">Flap@$*&g Duck</li>
 `
 
     menu.append(ol)
@@ -67,6 +69,7 @@ function displayGames() {
         document.querySelector('li#dino').style.color = "red"
         state.game = "dino"
         menu.innerHTML = ""
+        screen.className = ""
         initialiseDino()
 
     })
@@ -74,6 +77,8 @@ function displayGames() {
     document.querySelector('li#flappy').addEventListener('click', () => {
         document.querySelector('li#flappy').style.color = "red"
         state.game = "flappy"
+        screen.className = ""
+        menu.innerHTML = ""
         startFlappy()
     })
 
@@ -83,6 +88,7 @@ function displayGames() {
 
 function displayScores() {
     menu.innerHTML = ""
+    screen.className = "screenColor"
     let h1 = document.createElement('button')
     h1.id = "h1"
     h1.innerHTML = "Back to game menu"
@@ -127,7 +133,7 @@ function displayScores() {
     /////////////////// create second table ///////////////
     let divT2 = document.createElement('div')
     divT2.id = "t2"
-    divT2.innerHTML = "<h1>Flappy Game</h1>"
+    divT2.innerHTML = "<h1>Flap@$*&g Duck</h1>"
     menu.append(divT2)
     let t2 = document.createElement('table')
     t2.id = "t2"
