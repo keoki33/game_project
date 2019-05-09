@@ -1,4 +1,26 @@
+function dinoInstructions() {
+    let instructions = document.createElement('div')
+    instructions.className = 'dinoInstructionBox'
+    instructions.innerHTML = `
+    <h2 id='dino-headline'>Dino Escape Instructions </h2>
+    <p> Press Up, Down, Left, Right to escape the Dinosaurs </p>
+    <p> They are hungry - stay away from their heads! </p>
+    <button id='dino-start-button'>Start Game</button>
+    `
+    screen.className = 'dinoInstructionBackground'
+    menu.append(instructions)
+
+
+    let startBtn = instructions.querySelector('#dino-start-button')
+    startBtn.addEventListener('click', () => {
+        screen.className = ""
+        instructions.innerHTML = ""
+        initialiseDino()
+    })
+}
+
 const initialiseDino = () => {
+    //document.removeEventListener("keydown", start)
 
     let canvas = document.querySelector('canvas')
 
@@ -15,6 +37,8 @@ const initialiseDino = () => {
     let yy = 50
     let velx = 150
     let vely = 150
+    let xxx = 73
+    let yyy = 73
 
     let dino1width = 40
     let dino1height = 15
@@ -36,6 +60,9 @@ const initialiseDino = () => {
     let dyy = 2
     let dxvelo = 3
     let dyvelo = 3
+    let dxrex = 1.5
+    let dyrex = 1.5
+
 
     // user control
     let rightPressed = false
@@ -57,6 +84,11 @@ const initialiseDino = () => {
 
     let background = new Image()
     background.src = 'images/prehistoric-landscape.jpg'
+
+    const goatScream = new Audio();
+    goatScream.src = "sounds/goat_scream.mp3";
+    const dinoRoar = new Audio();
+    dinoRoar.src = "sounds/dinoroar.mp3";
 
     const loadBackground = () => {
         c.drawImage(background, 0, 0, canvas.width, canvas.height)
@@ -82,16 +114,22 @@ const initialiseDino = () => {
     const startDino = () => {
         c.clearRect(0, 0, canvas.width, canvas.height)
         loadBackground()
-        drawDino(dino1, x, y, 150, 50)
+
+        drawDino(dino1, x, y, 140, 50)
         if (score > 200) {
-            drawDino(dino1, xx, yy, 150, 50)
+            drawDino(dino1, xx, yy, 140, 50)
+            collisionBronto2()
         }
         if (score > 400) {
-            drawDino(velo, velx, vely, 75, 75)
+            drawDino(velo, velx, vely, 55, 55)
+            collisionVelociraptor()
         }
+        initTrex()
+        collisionRex()
+
         drawBlock()
         drawScore()
-        collisionDetection()
+        collisionBronto1()
         score += 0.5
 
         // rates of movement  
@@ -103,6 +141,17 @@ const initialiseDino = () => {
 
         velx += dxvelo
         vely += dyvelo
+
+        // insert here movement params of TREX
+        if (xxx < blockX && dxrex < 0 || xxx > blockX && dxrex > 0) {
+            dxrex = -dxrex
+        }
+        if (yyy < blockY && dyrex < 0 || yyy > blockY && dyrex > 0) {
+            dyrex = -dyrex
+        }
+        xxx += dxrex
+        yyy += dyrex
+
 
         //dino1 hitting left and right walls 
         if (x + dx > canvas.width - dino1width || x + dx < dino1width) {
@@ -173,35 +222,55 @@ const initialiseDino = () => {
     document.addEventListener("keyup", keyUpHandler, false)
 
     // running program
-
     const interval = setInterval(startDino, 10)
 
     const gameOver = () => {
         state.score = score
         console.log(state)
 
-        c.clearRect(0, 0, canvas.width, canvas.height)
+        //c.clearRect(0, 0, canvas.width, canvas.height)
         //document.location.reload()
         clearInterval(interval)
+        canvas.className = "clear"
+        goatScream.play()
 
         createScore(state).then(() => displayScores())
     }
 
     // collision detection 
-    function collisionDetection() {
+    const collisionBronto1 = () => {
         if (x > blockX && x < blockX + blockWidth && y > blockY && y < blockY + blockHeight) {
-            gameOver()
-        } else if (xx > blockX && xx < blockX + blockWidth && yy > blockY && yy < blockY + blockHeight) {
-            gameOver()
-        } else if (velx > blockX && velx < blockX + blockWidth && vely > blockY && vely < blockY + blockHeight) {
             gameOver()
         }
     }
+    const collisionBronto2 = () => {
+        if (xx > blockX && xx < blockX + blockWidth && yy > blockY && yy < blockY + blockHeight) {
+            gameOver()
+        }
+    }
+    const collisionVelociraptor = () => {
+        if (velx > blockX && velx < blockX + blockWidth && vely > blockY && vely < blockY + blockHeight) {
+            gameOver()
+        }
+    }
+    const collisionRex = () => {
+        if (xxx > blockX && xxx < blockX + blockWidth && yyy > blockY && yyy < blockY + blockHeight) {
+            gameOver()
+        }
+    }
+
 
     const drawScore = () => {
         c.font = "24px Arial";
         c.fillStyle = "#0095DD";
         c.fillText("Score: " + score, 8, 35);
+    }
+
+    const initTrex = () => {
+        let trex = new Image()
+        trex.src = 'images/trex.png'
+
+        drawDino(trex, xxx, yyy, 75, 75)
     }
 
 }

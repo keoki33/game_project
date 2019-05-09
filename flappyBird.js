@@ -1,4 +1,5 @@
 function duckIns() {
+
     screen.className = ""
     menu.innerHTML = ""
     screen.className = "screenColor" // add your own css style and change this class to match - background, etc
@@ -6,13 +7,13 @@ function duckIns() {
 
     d.innerHTML = `
     <h1>Flap@$*&g Duck</h1>
-    <br>
-    <br>
+    
+    
     <br>
     <p>
-    Help your coding duck avoid bad code
-    <br><br>
-    Hit any button to flap
+    Help your coding duck avoid bad code.
+    <br><br><br>
+    <h4>Hit space bar to flap</h4>
     </p>
     <br>
     <br>
@@ -63,9 +64,12 @@ function startFlappy() {
 
 
     // some variables
-
-    var gap = 85;
+    let ee = 0
+    let d = 0
+    let ugap = 55
+    var gap = 75;
     var constant;
+    let constant2
 
     var bX = 10;
     var bY = 150;
@@ -87,7 +91,7 @@ function startFlappy() {
     document.addEventListener("keydown", moveUp);
 
     function moveUp() {
-        bY -= 25;
+        bY -= 20;
         fly.play();
     }
 
@@ -109,31 +113,65 @@ function startFlappy() {
 
         for (var i = 0; i < pipe.length; i++) {
 
+            if (score > 12) {
+                if (gap <= 75 && d == 0) {
+                    gap = gap - 0.5
+                }
+                if (gap == 30) {
+                    d = 1
+                }
+                if (gap >= 30 && d == 1) {
+                    gap = gap + 1
+                }
+                if (gap == 75) {
+                    d = 0
+                }
+            }
+            if (score > 30) {
+                if (ugap <= 55 && ee == 0) {
+                    ugap = ugap - 1
+                }
+                if (ugap == 25) {
+                    ee = 1
+                }
+                if (ugap >= 25 && ee == 1) {
+                    ugap = ugap + 0.5
+                }
+                if (ugap == 55) {
+                    ee = 0
+                }
+            }
+
+            constant2 = pipeNorth.height + ugap;
             constant = pipeNorth.height + gap;
-            ctx.drawImage(pipeNorth, pipe[i].x, pipe[i].y);
+            ctx.drawImage(pipeNorth, pipe[i].x, pipe[i].y - ugap);
             ctx.drawImage(pipeSouth, pipe[i].x, pipe[i].y + constant);
 
-            pipe[i].x--;
+            pipe[i].x -= 2;
 
-            if (pipe[i].x == 125) {
+            if (pipe[i].x == 128) {
                 pipe.push({
                     x: cvs.width,
                     y: Math.floor(Math.random() * pipeNorth.height) - pipeNorth.height
                 });
             }
 
+
             // detect collision
 
-            if (bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width && (bY <= pipe[i].y + pipeNorth.height || bY + bird.height >= pipe[i].y + constant) || bY + bird.height >= cvs.height - fg.height) {
+            if (bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width && (bY <= pipe[i].y + pipeNorth.height - ugap || bY + bird.height >= pipe[i].y + constant) || bY + bird.height >= cvs.height - fg.height) {
                 stop = "yes"
-
+                // document.location.reload()
             }
 
-            if (pipe[i].x == 5) {
-                score++;
+            if (pipe[i].x == 0) {
+                score++
+                score *= 1.2
                 scor.play();
             }
-
+            if (score > 3) {
+                pipe[i].x -= 2
+            }
 
         }
 
@@ -144,11 +182,13 @@ function startFlappy() {
         bY += gravity;
 
         ctx.fillStyle = "#000";
-        ctx.font = "20px Verdana";
+        ctx.font = "60px Verdana";
         ctx.fillText("Score : " + score, 10, cvs.height - 20);
         if (stop == "yes") {
             state.score = score
             // ctx.clearRect(0, 0, canvas.width, canvas.height)
+            cvs.className = "clear"
+            document.removeEventListener("keydown", moveUp)
             createScore(state).then(() => displayScores())
         } else {
             requestAnimationFrame(draw);
@@ -156,7 +196,6 @@ function startFlappy() {
 
 
     }
-
 
     draw()
 

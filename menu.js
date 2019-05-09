@@ -1,5 +1,11 @@
 const menu = document.querySelector('div#menu')
 const screen = document.querySelector('div#screen')
+const cv = document.querySelector('canvas#canvas')
+
+const thatsall = new Audio();
+thatsall.src = "sounds/highscores.mp3";
+const laser = new Audio();
+laser.src = "sounds/laser.mp3";
 
 
 const URL = 'http://localhost:3000/users'
@@ -19,11 +25,13 @@ function displayMenu() {
 
     f.innerHTML = `
         <form id='nameForm'>
-        <h1>Welcome!</h1>
-        <h3>Please enter your name</h3>
+        <h1 style="text-align:center">Welcome!</h1>
+        <h3 style="text-align:center">Please enter your name</h3>
+        <div style = "text-align:center;">
         <input type="text" name="name" value="" placeholder="" class="input-text">      
         <br>
         <input type="submit" name="submit" value="Start" class="submit">
+        </div>
       </form>
   `
     menu.append(f)
@@ -33,6 +41,7 @@ function displayMenu() {
         let item = {
             name: f.name.value,
         }
+        laser.play()
         createItem(item).then(function (x) {
             state.name = x.name
             console.log(x.id)
@@ -51,34 +60,38 @@ function displayGames() {
 
     let ol = document.createElement('ol')
     ol.innerHTML = `
-    <h1>Choose a game:</h1>
-      <li id="tank">Tank</li>
-     <li id="dino">Dino Escape</li>
+    <h1 style="text-align:center">Choose a game:</h1>
+    
+     <li id="dino">Dino Escape</li><br>
      <li id="flappy">Flap@$*&g Duck</li>
 `
 
     menu.append(ol)
 
-    document.querySelector('li#tank').addEventListener('click', () => {
-        document.querySelector('li#tank').style.color = "red"
-        console.log("start game")
-        displayScores()
-    })
+    // document.querySelector('li#tank').addEventListener('click', () => {
+    //     document.querySelector('li#tank').style.color = "red"
+    //     console.log("start game")
+    //     displayScores()
+    // })
 
     document.querySelector('li#dino').addEventListener('click', () => {
         document.querySelector('li#dino').style.color = "red"
+        laser.play()
         state.game = "dino"
         menu.innerHTML = ""
         screen.className = ""
-        initialiseDino()
+        cv.className = ""
+        dinoInstructions()
 
     })
 
     document.querySelector('li#flappy').addEventListener('click', () => {
         document.querySelector('li#flappy').style.color = "red"
+        laser.play()
         state.game = "flappy"
         screen.className = ""
         menu.innerHTML = ""
+        cv.className = ""
         duckIns()
     })
 
@@ -87,6 +100,7 @@ function displayGames() {
 
 
 function displayScores() {
+    thatsall.play()
     menu.innerHTML = ""
     // screen.className = "screenColor"
     let h1 = document.createElement('button')
@@ -95,6 +109,7 @@ function displayScores() {
     menu.append(h1)
 
     h1.addEventListener('click', () => {
+        laser.play()
         displayGames()
     })
 
@@ -102,6 +117,7 @@ function displayScores() {
 
     let divT1 = document.createElement('div')
     divT1.id = "t1"
+    divT1.className = "table"
     divT1.innerHTML = "<h1>Dino Escape</h1>"
     menu.append(divT1)
     let t = document.createElement('table')
@@ -133,6 +149,7 @@ function displayScores() {
     /////////////////// create second table ///////////////
     let divT2 = document.createElement('div')
     divT2.id = "t2"
+    divT2.className = "table"
     divT2.innerHTML = "<h1>Flap@$*&g Duck</h1>"
     menu.append(divT2)
     let t2 = document.createElement('table')
