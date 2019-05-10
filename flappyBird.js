@@ -10,7 +10,7 @@
 
        screen.className = ""
        menu.innerHTML = ""
-       screen.className = "screenColor" // add your own css style and change this class to match - background, etc
+       screen.className = "screenColor"
        let d = document.createElement('div')
 
        d.innerHTML = `
@@ -60,7 +60,7 @@
        cvs.width = 690
        cvs.height = 464
 
-       // load images
+
 
        var bird = new Image();
        var bg = new Image();
@@ -75,7 +75,7 @@
        pipeSouth.src = "images/pipeSouth.jpg";
 
 
-       // some variables
+
        let ee = 0
        let d = 0
        let ugap = 55
@@ -90,7 +90,7 @@
 
        var score = 0;
 
-       // audio files
+
 
        var fly = new Audio();
        var scor = new Audio();
@@ -107,7 +107,7 @@
 
 
 
-       // on key down
+
 
        document.addEventListener("keydown", moveUp);
 
@@ -116,7 +116,7 @@
            fly.play();
        }
 
-       // pipe coordinates
+
 
        var pipe = [];
 
@@ -125,7 +125,7 @@
            y: 0
        };
 
-       // draw images
+
 
        function draw() {
 
@@ -178,7 +178,7 @@
                }
 
 
-               // detect collision
+
 
                if (bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width && (bY <= pipe[i].y + pipeNorth.height - ugap || bY + bird.height >= pipe[i].y + constant) || bY + bird.height >= cvs.height - fg.height) {
                    stop = "yes"
