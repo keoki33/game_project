@@ -11,6 +11,8 @@ const laser = new Audio();
 laser.src = "sounds/laser.mp3";
 const mainsoundtrack = new Audio();
 mainsoundtrack.src = "sounds/mainsoundtrack.mp3";
+const dinotheme = new Audio();
+dinotheme.src = "sounds/dinotheme.mp3";
 
 
 
@@ -94,6 +96,7 @@ function displayGames() {
         menu.innerHTML = ""
         screen.className = ""
         cv.className = ""
+        dinotheme.play()
         dinoInstructions()
 
     })

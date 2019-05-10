@@ -1,4 +1,5 @@
 function dinoInstructions() {
+
     mainsoundtrack.pause();
     mainsoundtrack.currentTime = 0;
 
@@ -18,6 +19,8 @@ function dinoInstructions() {
     startBtn.addEventListener('click', () => {
         screen.className = ""
         instructions.innerHTML = ""
+        dinotheme.pause();
+        dinotheme.currentTime = 0;
         initialiseDino()
     })
 }
