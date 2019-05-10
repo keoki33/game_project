@@ -91,8 +91,12 @@ const initialiseDino = () => {
     dinoRoar.src = "sounds/dinoroar.mp3";
     const dinoWalk = new Audio();
     dinoWalk.src = "sounds/dinoWalk.mp3";
+    const goatSound = new Audio();
+    goatSound.src = "sounds/goat.mp3";
 
     dinoWalk.play()
+
+
 
     const loadBackground = () => {
         c.drawImage(background, 0, 0, canvas.width, canvas.height)
@@ -214,10 +218,13 @@ const initialiseDino = () => {
         if (e.key == "Right" || e.key == "ArrowRight") {
             rightPressed = false;
         } else if (e.key == "Left" || e.key == "ArrowLeft") {
+            goatSound.play()
             leftPressed = false;
         } else if (e.key == "Up" || e.key == "ArrowUp") {
+            goatSound.play()
             upPressed = false;
         } else if (e.key == "Down" || e.key == "ArrowDown") {
+
             downPressed = false;
         }
     }
@@ -238,6 +245,7 @@ const initialiseDino = () => {
         canvas.className = "clear"
         dinoWalk.pause();
         dinoWalk.currentTime = 0;
+
         goatScream.play()
 
         createScore(state).then(() => displayScores())
