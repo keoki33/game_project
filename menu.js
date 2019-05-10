@@ -9,6 +9,8 @@ const thatsall = new Audio();
 thatsall.src = "sounds/highscores.mp3";
 const laser = new Audio();
 laser.src = "sounds/laser.mp3";
+const mainsoundtrack = new Audio();
+mainsoundtrack.src = "sounds/mainsoundtrack.mp3";
 
 
 
@@ -27,6 +29,7 @@ let state = {
 
 function displayMenu() {
     init()
+
     console.log("displayMenu")
     screen.className = "screenColor"
     let f = document.createElement('form')
@@ -57,11 +60,13 @@ function displayMenu() {
             console.log(state)
         })
         menu.innerHTML = ""
+        mainsoundtrack.play()
         displayGames()
     })
 }
 
 function displayGames() {
+
     console.log("displayGames")
     menu.innerHTML = ""
     screen.className = "screenColor"
@@ -120,6 +125,7 @@ function displayScores() {
     h1.addEventListener('click', () => {
         laser.play()
         displayGames()
+        mainsoundtrack.play()
     })
 
 

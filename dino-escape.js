@@ -1,4 +1,7 @@
 function dinoInstructions() {
+    mainsoundtrack.pause();
+    mainsoundtrack.currentTime = 0;
+
     let instructions = document.createElement('div')
     instructions.className = 'dinoInstructionBox'
     instructions.innerHTML = `
