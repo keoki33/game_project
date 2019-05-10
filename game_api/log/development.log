@@ -19924,3 +19924,728 @@ Processing by ScoresController#index as */*
 Completed 200 OK in 316ms (Views: 0.2ms | ActiveRecord: 19.6ms)
 
 
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (244.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "game_api_development"[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (228.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "game_api_test"[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (510.0ms)[0m  [1m[35mCREATE DATABASE "game_api_development" ENCODING = 'unicode'[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (387.7ms)[0m  [1m[35mCREATE DATABASE "game_api_test" ENCODING = 'unicode'[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (15.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7340490705108835575)[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+Migrating to CreateUsers (20190506162703)
+  [1m[35m (3.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (22.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190506162703_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190506162703"]]
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+Migrating to CreateScores (20190506162740)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "scores" ("id" bigserial primary key, "score" integer, "game" character varying, "player_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190506162740_create_scores.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190506162740"]]
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+Migrating to Add (20190508135149)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (5.1ms)[0m  [1m[35mALTER TABLE "scores" ADD "name" character varying[0m
+  ↳ db/migrate/20190508135149_add.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190508135149"]]
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-10 06:50:50.481760"], ["updated_at", "2019-05-10 06:50:50.481760"]]
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7340490705108835575)[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/bin/rake:23
+Started POST "/users" for ::1 at 2019-05-10 07:51:15 +0100
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"keo", "user"=>{"name"=>"keo"}}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "keo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "keo"], ["created_at", "2019-05-10 06:51:16.098853"], ["updated_at", "2019-05-10 06:51:16.098853"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 57ms (Views: 15.7ms | ActiveRecord: 15.8ms)
+
+
+Started POST "/scores" for ::1 at 2019-05-10 07:51:42 +0100
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>1, "name"=>"keo", "game"=>"flappy", "score"=>11.915904}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mScore Create (1.5ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["score", 11], ["game", "flappy"], ["player_id", 1], ["created_at", "2019-05-10 06:51:42.839620"], ["updated_at", "2019-05-10 06:51:42.839620"], ["name", "keo"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+Completed 200 OK in 21ms (Views: 0.3ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 07:51:42 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (5.0ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 07:51:42 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/scores" for ::1 at 2019-05-10 07:51:57 +0100
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>1, "name"=>"keo", "game"=>"dino", "score"=>90.5}
+  [1m[35m (2.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mScore Create (3.6ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["score", 90], ["game", "dino"], ["player_id", 1], ["created_at", "2019-05-10 06:51:57.235461"], ["updated_at", "2019-05-10 06:51:57.235461"], ["name", "keo"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (4.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+Completed 200 OK in 15ms (Views: 0.4ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 07:51:57 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.4ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 07:51:57 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.7ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 5ms (Views: 0.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 07:56:11 +0100
+Processing by ScoresController#index as HTML
+  [1m[36mScore Load (1.6ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users" for ::1 at 2019-05-10 07:56:14 +0100
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for ::1 at 2019-05-10 09:28:27 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"qfewr", "user"=>{"name"=>"qfewr"}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "qfewr"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (2.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "qfewr"], ["created_at", "2019-05-10 08:28:27.934352"], ["updated_at", "2019-05-10 08:28:27.934352"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 109ms (Views: 2.0ms | ActiveRecord: 10.1ms)
+
+
+Started POST "/users" for ::1 at 2019-05-10 09:31:19 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"joe", "user"=>{"name"=>"joe"}}
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "joe"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (18.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "joe"], ["created_at", "2019-05-10 08:31:19.467960"], ["updated_at", "2019-05-10 08:31:19.467960"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 46ms (Views: 0.3ms | ActiveRecord: 26.1ms)
+
+
+Started POST "/users" for ::1 at 2019-05-10 09:31:29 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"joe", "user"=>{"name"=>"joe"}}
+  [1m[36mUser Load (10.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "joe"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 17ms (Views: 0.7ms | ActiveRecord: 10.2ms)
+
+
+Started POST "/scores" for ::1 at 2019-05-10 09:31:36 +0100
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>3, "name"=>"joe", "game"=>"flappy", "score"=>0}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mScore Create (21.5ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["score", 0], ["game", "flappy"], ["player_id", 3], ["created_at", "2019-05-10 08:31:36.373592"], ["updated_at", "2019-05-10 08:31:36.373592"], ["name", "joe"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+Completed 200 OK in 34ms (Views: 0.5ms | ActiveRecord: 24.1ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:31:36 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (19.7ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 26ms (Views: 0.3ms | ActiveRecord: 19.7ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:31:36 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.3ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for ::1 at 2019-05-10 09:31:48 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"test", "user"=>{"name"=>"test"}}
+  [1m[36mUser Load (23.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (5.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "test"], ["created_at", "2019-05-10 08:31:48.803655"], ["updated_at", "2019-05-10 08:31:48.803655"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 42ms (Views: 2.7ms | ActiveRecord: 30.0ms)
+
+
+Started POST "/scores" for ::1 at 2019-05-10 09:31:54 +0100
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>4, "name"=>"test", "game"=>"flappy", "score"=>0}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mScore Create (0.6ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["score", 0], ["game", "flappy"], ["player_id", 4], ["created_at", "2019-05-10 08:31:54.411827"], ["updated_at", "2019-05-10 08:31:54.411827"], ["name", "test"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+Completed 200 OK in 9ms (Views: 0.9ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:31:54 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 10ms (Views: 2.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:31:54 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (15.3ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 25ms (Views: 0.4ms | ActiveRecord: 15.3ms)
+
+
+Started POST "/scores" for ::1 at 2019-05-10 09:33:41 +0100
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>4, "name"=>"test", "game"=>"dino", "score"=>84.5}
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mScore Create (0.8ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["score", 84], ["game", "dino"], ["player_id", 4], ["created_at", "2019-05-10 08:33:41.619482"], ["updated_at", "2019-05-10 08:33:41.619482"], ["name", "test"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+Completed 200 OK in 16ms (Views: 0.7ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:33:41 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.7ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 33ms (Views: 0.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:33:41 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (1.0ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 19ms (Views: 0.5ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users" for ::1 at 2019-05-10 09:34:23 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"me", "user"=>{"name"=>"me"}}
+  [1m[36mUser Load (12.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "me"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (7.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (11.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "me"], ["created_at", "2019-05-10 08:34:23.103759"], ["updated_at", "2019-05-10 08:34:23.103759"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (4.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 46ms (Views: 0.3ms | ActiveRecord: 36.2ms)
+
+
+Started POST "/scores" for ::1 at 2019-05-10 09:34:27 +0100
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>5, "name"=>"me", "game"=>"flappy", "score"=>0}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mScore Create (0.9ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["score", 0], ["game", "flappy"], ["player_id", 5], ["created_at", "2019-05-10 08:34:27.822874"], ["updated_at", "2019-05-10 08:34:27.822874"], ["name", "me"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (9.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+Completed 200 OK in 18ms (Views: 0.3ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:34:27 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (3.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:34:27 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (2.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 12ms (Views: 0.5ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/users" for ::1 at 2019-05-10 09:35:25 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"me", "user"=>{"name"=>"me"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "me"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 7ms (Views: 1.0ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/scores" for ::1 at 2019-05-10 09:35:32 +0100
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>5, "name"=>"me", "game"=>"flappy", "score"=>0}
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mScore Create (0.6ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["score", 0], ["game", "flappy"], ["player_id", 5], ["created_at", "2019-05-10 08:35:32.112821"], ["updated_at", "2019-05-10 08:35:32.112821"], ["name", "me"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:35:32 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.6ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:35:32 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (5.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 14ms (Views: 0.4ms | ActiveRecord: 5.9ms)
+
+
+Started POST "/users" for ::1 at 2019-05-10 09:37:37 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"me", "user"=>{"name"=>"me"}}
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "me"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 5.0ms)
+
+
+Started POST "/scores" for ::1 at 2019-05-10 09:37:43 +0100
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>5, "name"=>"me", "game"=>"flappy", "score"=>0}
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mScore Create (2.2ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["score", 0], ["game", "flappy"], ["player_id", 5], ["created_at", "2019-05-10 08:37:43.622895"], ["updated_at", "2019-05-10 08:37:43.622895"], ["name", "me"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+Completed 200 OK in 25ms (Views: 0.5ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:37:43 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.6ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 26ms (Views: 0.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:37:43 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users" for ::1 at 2019-05-10 09:38:20 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"me", "user"=>{"name"=>"me"}}
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "me"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 35ms (Views: 0.2ms | ActiveRecord: 11.8ms)
+
+
+Started POST "/scores" for ::1 at 2019-05-10 09:38:24 +0100
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>5, "name"=>"me", "game"=>"dino", "score"=>84.5}
+  [1m[35m (13.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mScore Create (3.8ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["score", 84], ["game", "dino"], ["player_id", 5], ["created_at", "2019-05-10 08:38:24.747216"], ["updated_at", "2019-05-10 08:38:24.747216"], ["name", "me"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (13.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+Completed 200 OK in 50ms (Views: 0.3ms | ActiveRecord: 30.4ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:38:24 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (37.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 57ms (Views: 1.0ms | ActiveRecord: 37.9ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:38:24 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (1.5ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/users" for ::1 at 2019-05-10 09:38:48 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"me", "user"=>{"name"=>"me"}}
+  [1m[36mUser Load (30.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "me"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 35ms (Views: 0.4ms | ActiveRecord: 30.3ms)
+
+
+Started POST "/scores" for ::1 at 2019-05-10 09:39:02 +0100
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>5, "name"=>"me", "game"=>"flappy", "score"=>1.2}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mScore Create (2.6ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["score", 1], ["game", "flappy"], ["player_id", 5], ["created_at", "2019-05-10 08:39:02.872940"], ["updated_at", "2019-05-10 08:39:02.872940"], ["name", "me"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (12.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+Completed 200 OK in 22ms (Views: 0.3ms | ActiveRecord: 15.8ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:39:02 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (12.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 26ms (Views: 0.5ms | ActiveRecord: 12.8ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:39:02 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (3.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 16ms (Views: 0.6ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/users" for ::1 at 2019-05-10 09:40:11 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"me", "user"=>{"name"=>"me"}}
+  [1m[36mUser Load (32.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "me"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 36ms (Views: 0.4ms | ActiveRecord: 32.4ms)
+
+
+Started POST "/users" for ::1 at 2019-05-10 09:40:28 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"me", "user"=>{"name"=>"me"}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "me"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/scores" for ::1 at 2019-05-10 09:40:34 +0100
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>5, "name"=>"me", "game"=>"flappy", "score"=>0}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mScore Create (2.1ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["score", 0], ["game", "flappy"], ["player_id", 5], ["created_at", "2019-05-10 08:40:34.375833"], ["updated_at", "2019-05-10 08:40:34.375833"], ["name", "me"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (10.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+Completed 200 OK in 24ms (Views: 0.7ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:40:34 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (7.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 70ms (Views: 0.5ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:40:34 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (2.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 19ms (Views: 2.5ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/users" for ::1 at 2019-05-10 09:40:44 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"me", "user"=>{"name"=>"me"}}
+  [1m[36mUser Load (34.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "me"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 43ms (Views: 0.4ms | ActiveRecord: 34.2ms)
+
+
+Started POST "/scores" for ::1 at 2019-05-10 09:40:50 +0100
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>5, "name"=>"me", "game"=>"flappy", "score"=>0}
+  [1m[35m (13.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mScore Create (0.5ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["score", 0], ["game", "flappy"], ["player_id", 5], ["created_at", "2019-05-10 08:40:50.484613"], ["updated_at", "2019-05-10 08:40:50.484613"], ["name", "me"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (7.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+Completed 200 OK in 30ms (Views: 0.7ms | ActiveRecord: 21.8ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:40:50 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (2.3ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 18ms (Views: 0.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:40:50 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (1.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/users" for ::1 at 2019-05-10 09:49:23 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"keo", "user"=>{"name"=>"keo"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "keo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 30ms (Views: 2.5ms | ActiveRecord: 5.9ms)
+
+
+Started POST "/scores" for ::1 at 2019-05-10 09:49:30 +0100
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>1, "name"=>"keo", "game"=>"dino", "score"=>238}
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mScore Create (3.6ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["score", 238], ["game", "dino"], ["player_id", 1], ["created_at", "2019-05-10 08:49:30.506643"], ["updated_at", "2019-05-10 08:49:30.506643"], ["name", "keo"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+Completed 200 OK in 27ms (Views: 0.6ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:49:30 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.7ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 21ms (Views: 0.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:49:30 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.6ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 24ms (Views: 0.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/scores" for ::1 at 2019-05-10 09:49:58 +0100
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>1, "name"=>"keo", "game"=>"dino", "score"=>287}
+  [1m[35m (8.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mScore Create (2.7ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["score", 287], ["game", "dino"], ["player_id", 1], ["created_at", "2019-05-10 08:49:58.094219"], ["updated_at", "2019-05-10 08:49:58.094219"], ["name", "keo"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+Completed 200 OK in 23ms (Views: 0.7ms | ActiveRecord: 13.7ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:49:58 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (10.3ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 42ms (Views: 0.6ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:49:58 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (1.5ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/users" for ::1 at 2019-05-10 09:50:04 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"me", "user"=>{"name"=>"me"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "me"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 34ms (Views: 0.6ms | ActiveRecord: 8.9ms)
+
+
+Started POST "/scores" for ::1 at 2019-05-10 09:50:10 +0100
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>5, "name"=>"me", "game"=>"dino", "score"=>220.5}
+  [1m[35m (10.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mScore Create (5.3ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["score", 220], ["game", "dino"], ["player_id", 5], ["created_at", "2019-05-10 08:50:10.983509"], ["updated_at", "2019-05-10 08:50:10.983509"], ["name", "me"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+Completed 200 OK in 25ms (Views: 0.5ms | ActiveRecord: 17.7ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:50:11 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (6.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 28ms (Views: 0.3ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:50:11 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.5ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 18ms (Views: 0.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for ::1 at 2019-05-10 09:51:28 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"me", "user"=>{"name"=>"me"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "me"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/scores" for ::1 at 2019-05-10 09:51:39 +0100
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>5, "name"=>"me", "game"=>"dino", "score"=>408}
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mScore Create (1.8ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["score", 408], ["game", "dino"], ["player_id", 5], ["created_at", "2019-05-10 08:51:39.281070"], ["updated_at", "2019-05-10 08:51:39.281070"], ["name", "me"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (7.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+Completed 200 OK in 18ms (Views: 0.5ms | ActiveRecord: 10.2ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:51:39 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.6ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 14ms (Views: 1.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:51:39 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.6ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 21ms (Views: 0.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for ::1 at 2019-05-10 09:54:25 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"me", "user"=>{"name"=>"me"}}
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "me"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 4.3ms)
+
+
+Started POST "/scores" for ::1 at 2019-05-10 09:54:37 +0100
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>5, "name"=>"me", "game"=>"dino", "score"=>412}
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mScore Create (1.4ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["score", 412], ["game", "dino"], ["player_id", 5], ["created_at", "2019-05-10 08:54:37.808086"], ["updated_at", "2019-05-10 08:54:37.808086"], ["name", "me"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:54:37 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:54:37 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (3.6ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 24ms (Views: 0.4ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/users" for ::1 at 2019-05-10 09:57:54 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"me", "user"=>{"name"=>"me"}}
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "me"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 9ms (Views: 1.1ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/scores" for ::1 at 2019-05-10 09:58:02 +0100
+Processing by ScoresController#create as */*
+  Parameters: {"player_id"=>5, "name"=>"me", "game"=>"dino", "score"=>238}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[36mScore Create (1.3ms)[0m  [1m[32mINSERT INTO "scores" ("score", "game", "player_id", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["score", 238], ["game", "dino"], ["player_id", 5], ["created_at", "2019-05-10 08:58:02.235074"], ["updated_at", "2019-05-10 08:58:02.235074"], ["name", "me"]]
+  ↳ app/controllers/scores_controller.rb:19
+  [1m[35m (13.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/scores_controller.rb:19
+Completed 200 OK in 24ms (Views: 0.4ms | ActiveRecord: 14.6ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:58:02 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (3.7ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 25ms (Views: 0.4ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/scores" for ::1 at 2019-05-10 09:58:02 +0100
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (2.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  ↳ app/controllers/scores_controller.rb:4
+Completed 200 OK in 24ms (Views: 0.5ms | ActiveRecord: 2.1ms)
+
+

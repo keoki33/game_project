@@ -89,6 +89,10 @@ const initialiseDino = () => {
     goatScream.src = "sounds/goat_scream.mp3";
     const dinoRoar = new Audio();
     dinoRoar.src = "sounds/dinoroar.mp3";
+    const dinoWalk = new Audio();
+    dinoWalk.src = "sounds/dinoWalk.mp3";
+
+    dinoWalk.play()
 
     const loadBackground = () => {
         c.drawImage(background, 0, 0, canvas.width, canvas.height)
@@ -232,6 +236,8 @@ const initialiseDino = () => {
         //document.location.reload()
         clearInterval(interval)
         canvas.className = "clear"
+        dinoWalk.pause();
+        dinoWalk.currentTime = 0;
         goatScream.play()
 
         createScore(state).then(() => displayScores())

@@ -16,6 +16,27 @@ body {
 
 div#menu {}
 
+div#movie {
+    position: absolute;
+    height: 464px;
+    width: 690px;
+    top: 213px;
+    left: 366px;
+    border: 10px groove rgb(68, 83, 94);
+    border-radius: 10px;
+    z-index: 2;
+    overflow: hidden;
+
+}
+
+#pikaVid {
+
+    height: 100%;
+    width: 100%;
+
+
+}
+
 div.dinoInstructionBox {
     display: inline-block;
     padding: 90px 100px;
@@ -47,7 +68,7 @@ div#screen {
     left: 366px;
     border: 10px groove rgb(68, 83, 94);
     border-radius: 10px;
-    z-index: 2;
+    z-index: 3;
     overflow: hidden;
 }
 
@@ -110,7 +131,7 @@ canvas {
     left: 366px;
     border: 10px groove rgb(68, 83, 94);
     border-radius: 10px;
-    z-index: 1;
+    z-index: 2;
 
 }
 

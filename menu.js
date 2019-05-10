@@ -1,11 +1,18 @@
 const menu = document.querySelector('div#menu')
 const screen = document.querySelector('div#screen')
 const cv = document.querySelector('canvas#canvas')
+const body = document.querySelector('#body')
+const movie = document.querySelector('div#movie')
+
 
 const thatsall = new Audio();
 thatsall.src = "sounds/highscores.mp3";
 const laser = new Audio();
 laser.src = "sounds/laser.mp3";
+
+
+
+
 
 
 const URL = 'http://localhost:3000/users'
@@ -19,6 +26,7 @@ let state = {
 
 
 function displayMenu() {
+    init()
     console.log("displayMenu")
     screen.className = "screenColor"
     let f = document.createElement('form')
@@ -88,6 +96,7 @@ function displayGames() {
     document.querySelector('li#flappy').addEventListener('click', () => {
         document.querySelector('li#flappy').style.color = "red"
         laser.play()
+        // removeKonami()
         state.game = "flappy"
         screen.className = ""
         menu.innerHTML = ""
@@ -181,6 +190,24 @@ function displayScores() {
 }
 
 
+function play() {
+    const pika = document.createElement("video");
+    pika.setAttribute("src", "videos/pikaDance.mp4");
+
+    pika.setAttribute("type", "type='video/mp4");
+    pika.setAttribute("muted", "muted");
+
+    pika.id = "pikaVid"
+    movie.append(pika)
+
+    let playButton = document.getElementById("button");
+
+    var media = document.getElementById("YourVideo");
+
+}
+
+
+
 const createItem = item =>
     fetch(URL, {
         method: 'POST',
@@ -203,6 +230,73 @@ const createScore = state =>
         },
         body: JSON.stringify(state)
     }).then(resp => resp.json())
+
+
+
+
+
+
+function playPika() {
+    const pikaVid = document.querySelector('#pikaVid')
+    pikaVid.play()
+}
+
+
+const codes = [
+    "ArrowUp",
+    "ArrowUp",
+    "ArrowDown",
+    "ArrowDown",
+    "ArrowLeft",
+    "ArrowRight",
+    "ArrowLeft",
+    "ArrowRight",
+    "b",
+    "a"
+];
+
+function init() {
+    let idx = 0
+
+    document.body.addEventListener("keydown", (e) => {
+        const key = e.key
+
+        idx = (codes[idx] === key) ? ++idx : 0
+
+        if (idx === codes.length) {
+            // cv.className = "clear"
+            menu.innerHTML = ""
+            screen.className = ""
+            play()
+            playPika()
+            idx = 0
+        }
+
+    });
+}
+
+function removeKonami() {
+    document.body.removeEventListener("keydown", (e) => {
+        const key = e.key
+
+        idx = (codes[idx] === key) ? ++idx : 0
+
+        if (idx === codes.length) {
+            // cv.className = "clear"
+            menu.innerHTML = ""
+            screen.className = ""
+            play()
+            playPika()
+            idx = 0
+        }
+
+    });
+}
+
+
+
+
+
 
 
 // function duckIns() {
