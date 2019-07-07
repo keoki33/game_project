@@ -19,7 +19,7 @@ dinotheme.src = "sounds/dinotheme.mp3";
 
 
 
-const URL = 'http://localhost:3000/users'
+const URL = 'https://keo-game-api.herokuapp.com/users'
 let state = {
     player_id: 0,
     name: "",
@@ -228,11 +228,11 @@ const createItem = item =>
 
 
 const getScores = () =>
-    fetch('http://localhost:3000/scores')
+    fetch('https://keo-game-api.herokuapp.com/scores')
     .then(resp => resp.json())
 
 const createScore = state =>
-    fetch('http://localhost:3000/scores', {
+    fetch('https://keo-game-api.herokuapp.com/scores', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
