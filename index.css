@@ -1,40 +1,31 @@
 body {
-
-    display: inline-block;
-    padding: 20px 50px;
-    width: 55%;
-    height: 320px;
-    cursor: pointer;
-    background: url('images/back.jpg');
-
-    margin: 0 0 25px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    position: absolute;
+overflow: hidden;
 }
+
+#back {
+width: 1410px;
+height: 750px;
+}
+
 
 div#menu {}
 
 div#movie {
     position: absolute;
-    height: 464px;
-    width: 690px;
-    top: 213px;
-    left: 366px;
+    height: 400px;
+    width: 682px;
+    top: 172px;
+    left: 363px;
     border: 10px groove rgb(68, 83, 94);
     border-radius: 10px;
     z-index: 2;
     overflow: hidden;
-
 }
 
 #pikaVid {
-
     height: 100%;
     width: 100%;
-
-
+    background-color: black;
 }
 
 div.dinoInstructionBox {
@@ -53,36 +44,25 @@ div.dinoInstructionBox {
 
 div.dinoInstructionBackground {
     position: absolute;
-    height: 464px;
-    width: 690px;
-    top: 213px;
+    height: 400px;
+    width: 682px;
+    top: 172px;
+    left: 363px;
     background-image: url("images/prehistoric-landscape.jpg");
 }
 
 
 div#screen {
     position: absolute;
-    height: 464px;
-    width: 690px;
-    top: 213px;
-    left: 366px;
+    height: 400px;
+    width: 682px;
+    top: 172px;
+    left: 363px;
     border: 10px groove rgb(68, 83, 94);
     border-radius: 10px;
     z-index: 3;
     overflow: hidden;
 }
-
-/* div.screenColor {
-    position: absoilute;
-    color: #FFFFFF;
-    background: #333333;
-    text-shadow: 0 -1px 4px #FFF,
-        0 -2px 10px #ff0,
-        0 -10px 20px #ff8000,
-        0 -18px 40px #F00;
-    z-index: 2;
-} */
-
 
 h4 {
     animation: blinker 1s linear infinite;
@@ -92,7 +72,6 @@ h4 {
 
 div.screenColor {
     font-size: 30px;
-
     color: #FFFFFF;
     background: #232323;
     text-shadow: 0 0 5px #FFF,
@@ -106,14 +85,7 @@ div.screenColor {
     color: #FFFFFF;
     background-image: url("images/backmenu.jpg");
     text-align: center;
-
 }
-
-/* h1 {
-    animation: blinker 1s linear infinite;
-} */
-
-
 
 @keyframes blinker {
     50% {
@@ -123,11 +95,10 @@ div.screenColor {
 
 canvas {
     position: absolute;
-
-    height: 464px;
-    width: 690px;
-    top: 213px;
-    left: 366px;
+    height: 400px;
+    width: 682px;
+    top: 172px;
+    left: 363px;
     border: 10px groove rgb(68, 83, 94);
     border-radius: 10px;
     z-index: 2;
@@ -165,9 +136,6 @@ div#t2.table {
     position: absolute;
     right: 70px;
     top: 20px;
-
-
-
 }
 
 td {
